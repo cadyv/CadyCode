@@ -112,6 +112,8 @@ def fit_single_ringdown(times, amp, f_approx, **kwargs):
     max_THD = kwargs.pop('max_THD', 10)
     start_max_THD = kwargs.pop('start_max_THD', max_THD)
 
+    unwrap_phase = kwargs.pop('unwrap_phase', False)
+
     printThings = kwargs.pop('printThings', True)
     showPLTs = kwargs.pop('showPLTs', True)
 
@@ -202,7 +204,8 @@ def fit_single_ringdown(times, amp, f_approx, **kwargs):
         if printThings:
             print(f'Fitting log(amplitude) with linear fit and {len(r[firstr:lastr])} points')
         rcoeffs = np.polyfit(t[firstr:lastr], np.log(r[firstr:lastr]), 1)
-        ax[0,0].plot(t, t*rcoeffs[0] + rcoeffs[1], label='Fits', c=fitfit, lw=2)
+        if showPLTs:
+            ax[0,0].plot(t, t*rcoeffs[0] + rcoeffs[1], label='Fits', c=fitfit, lw=2)
         # amplitude decay time in seconds/e-folding
         tau = -1/rcoeffs[0]
         Q = tau*sumf*np.pi
