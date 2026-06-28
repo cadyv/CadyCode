@@ -12,7 +12,7 @@ dependencies = [
     "numpy>=1.26.0",
     "scipy>=1.10.0",
     "pandas>=1.3.5",
-     "matplotlib>=3.5.0",
+    "matplotlib>=3.5.0",
     # Add any other core packages that circuit.py or lockin_cady_25.py explicitly need
 ]
 
