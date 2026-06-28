@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cadycode"
+version = "0.1.0"
+description = "Analysis modules for VNA trace fitting and lock-in data"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.26.0",
+    "scipy>=1.10.0",
+    "pandas>=1.3.5",
+     "matplotlib>=3.5.0",
+    # Add any other core packages that circuit.py or lockin_cady_25.py explicitly need
+]
+
+# This is where you move Jupyter and plotting tools
+[project.optional-dependencies]
+dev = [
+    "jupyter>=1.0.0",
+    "ipympl>=0.9.0",
+]
